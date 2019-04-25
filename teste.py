@@ -1,10 +1,16 @@
 from FileHelper import lerArquivo
 conteudo = lerArquivo()
 nomes = []
-for i in range(len(conteudo)):
-    x = [conteudo[i].split('-')]
-    nomes.append(x[i][0])
+for i,e in enumerate(conteudo):
+    if e != 'agenda' and e != 'chamadas':
+        d_ponto = str(conteudo[i]).split(":")
+        p = str(d_ponto[0]).split('-')
+        nomes.append(p[0])
+        print(p)
+    if e == 'chamadas':
+        break
 print(nomes)
+
 
 while True:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
