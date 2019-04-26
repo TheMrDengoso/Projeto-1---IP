@@ -10,12 +10,10 @@ for i,e in enumerate(conteudo):
         agenda = str(d_ponto[1]).split(",")
         nomes.append(p[0])
         numeros.append(p[1])
-        agendas.append(d_ponto[1])
-        
+        agendas.append(agenda)
     if e == 'chamadas':
         break
 print(agendas)
-print(nomes)
 
 
 while True:
