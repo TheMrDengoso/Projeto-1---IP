@@ -7,7 +7,7 @@ for i,e in enumerate(conteudo):
     if e != 'agenda' and e != 'chamadas':
         d_ponto = str(conteudo[i]).split(":")
         p = str(d_ponto[0]).split('-')
-        agenda = str(d_ponto[1]).split(",")
+        agenda = str(d_ponto[1]).split(',')
         nomes.append(p[0])
         numeros.append(p[1])
         agendas.append(agenda)
@@ -41,3 +41,8 @@ while True:
               print(i)
         else:
             print("Nome invalido!")
+    elif opcao == 2:
+      for i in range(len(agendas)):
+        for e in (agendas[i]):
+          print(e)
+      
