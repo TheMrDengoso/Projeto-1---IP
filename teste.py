@@ -3,6 +3,7 @@ conteudo = lerArquivo()
 nomes = []
 numeros = []
 agendas = []
+opcao2 = []
 for i,e in enumerate(conteudo):
     if e != 'agenda' and e != 'chamadas':
         d_ponto = str(conteudo[i]).split(":")
@@ -44,5 +45,4 @@ while True:
     elif opcao == 2:
       for i in range(len(agendas)):
         for e in (agendas[i]):
-          print(e)
-      
+          opcao2.append(e)      
