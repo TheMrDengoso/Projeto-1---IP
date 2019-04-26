@@ -1,15 +1,17 @@
 from FileHelper import lerArquivo
 conteudo = lerArquivo()
 nomes = []
+numeros = []
 for i,e in enumerate(conteudo):
     if e != 'agenda' and e != 'chamadas':
         d_ponto = str(conteudo[i]).split(":")
         p = str(d_ponto[0]).split('-')
         nomes.append(p[0])
-        print(p)
+        numeros.append(p[1])   
     if e == 'chamadas':
         break
 print(nomes)
+print(numeros)
 
 
 while True:
