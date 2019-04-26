@@ -8,13 +8,14 @@ for i,e in enumerate(conteudo):
         d_ponto = str(conteudo[i]).split(":")
         p = str(d_ponto[0]).split('-')
         agenda = str(d_ponto[1]).split(",")
-        print(agenda[1])
         nomes.append(p[0])
         numeros.append(p[1])
         agendas.append(d_ponto[1])
+        
     if e == 'chamadas':
         break
-
+print(agendas)
+print(nomes)
 
 
 while True:
