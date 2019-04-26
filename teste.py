@@ -27,11 +27,13 @@ while True:
 
     if opcao == 1:
         nome = str(input("Informe o nome do suspeito que deseja saber a agenda dele: "))
-        if nome == "joao":
-            print(conteudo[1])
-        elif nome == "pedro":
+        if nome == "joao" or nome=="Joao" or nome =="JOAO":
+          print("Agenda do suspeito {}:".format(nome))
+          for i in agendas[0]:
+            print(i)
+        elif nome == "pedro" or nome == "Pedro" or nome== "PEDRO":
             print(conteudo[2])
-        elif nome == "antonio":
+        elif nome == "antonio" or nome=="Antonio" or nome =="ANTONIO":
             print(conteudo[3])
         else:
             print("Nome invalido!")
