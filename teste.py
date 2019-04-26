@@ -32,8 +32,12 @@ while True:
           for i in agendas[0]:
             print(i)
         elif nome == "pedro" or nome == "Pedro" or nome== "PEDRO":
-            print(conteudo[2])
+            print("Agenda do suspeito {}:".format(nome))
+            for i in agenda[1]:
+              print(i)
         elif nome == "antonio" or nome=="Antonio" or nome =="ANTONIO":
-            print(conteudo[3])
+            print("Agenda do suspeito {}:".format(nome))
+            for i in agenda[2]:
+              print(i)
         else:
             print("Nome invalido!")
