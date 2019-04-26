@@ -13,7 +13,7 @@ for i,e in enumerate(conteudo):
         agendas.append(agenda)
     if e == 'chamadas':
         break
-print(agendas)
+print(agendas[1])
 
 
 while True:
@@ -33,11 +33,11 @@ while True:
             print(i)
         elif nome == "pedro" or nome == "Pedro" or nome== "PEDRO":
             print("Agenda do suspeito {}:".format(nome))
-            for i in agenda[1]:
+            for i in agendas[1]:
               print(i)
         elif nome == "antonio" or nome=="Antonio" or nome =="ANTONIO":
             print("Agenda do suspeito {}:".format(nome))
-            for i in agenda[2]:
+            for i in agendas[2]:
               print(i)
         else:
             print("Nome invalido!")
