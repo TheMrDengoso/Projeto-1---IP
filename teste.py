@@ -4,8 +4,9 @@ nomes = []
 numeros = []
 agendas = []
 opcao2 = []
-suspeitos_inc =[]
-x=0
+suspeitos_j =[]
+suspeitos_p =[]
+suspeitos_a = []
 for i,e in enumerate(conteudo):
     if e != 'agenda' and e != 'chamadas':
         d_ponto = str(conteudo[i]).split(":")
@@ -48,8 +49,21 @@ while True:
     elif opcao == 2:
       for i,e in enumerate(agendas[0]):     
         if(e == numeros[1]):
-          suspeitos_inc.append(nomes[1])
-          
-          if(e == numeros[2]):
-            suspeitos_inc.append(nomes[2])
-      print(suspeitos_inc)
+          suspeitos_j.append(nomes[1])
+        elif(e == numeros[2]):
+          suspeitos_j.append(nomes[2])
+      print("joao: {}".format(suspeitos_j))
+
+      for i,e in enumerate(agendas[1]):
+        if(e == numeros[0]):
+          suspeitos_p.append(nomes[0])
+        elif(e == numeros[2]):
+          suspeitos_p.append(nomes[2])
+      print("pedro: {}".format(suspeitos_p))
+
+      for i,e in enumerate(agendas[2]):
+        if(e==numeros[0]):
+          suspeitos_a.append(nomes[0])
+        elif(e==numeros[1]):
+          suspeitos_a.append(nomes[1])
+      print("antonio: {}".format(suspeitos_a))
