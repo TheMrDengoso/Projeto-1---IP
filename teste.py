@@ -18,7 +18,26 @@ for i,e in enumerate(conteudo):
         
     if e == 'chamadas':
         break
-print(d_ponto[1])
+
+for i,e in enumerate(agendas[0]):     
+  if(e == numeros[1]):
+    suspeitos_j.append(nomes[1])
+  elif(e == numeros[2]):
+    suspeitos_j.append(nomes[2])
+
+
+for i,e in enumerate(agendas[1]):
+  if(e == numeros[0]):
+    suspeitos_p.append(nomes[0])
+  elif(e == numeros[2]):
+    suspeitos_p.append(nomes[2])
+
+
+for i,e in enumerate(agendas[2]):
+  if(e==numeros[0]):
+    suspeitos_a.append(nomes[0])
+  elif(e==numeros[1]):
+    suspeitos_a.append(nomes[1])
 
 
 while True:
@@ -47,23 +66,10 @@ while True:
         else:
             print("Nome invalido!\nO nome dos suspeitos: 'joao' ou 'pedro' ou 'antonio'.\n")
     elif opcao == 2:
-      for i,e in enumerate(agendas[0]):     
-        if(e == numeros[1]):
-          suspeitos_j.append(nomes[1])
-        elif(e == numeros[2]):
-          suspeitos_j.append(nomes[2])
       print("joao: {}".format(suspeitos_j))
-
-      for i,e in enumerate(agendas[1]):
-        if(e == numeros[0]):
-          suspeitos_p.append(nomes[0])
-        elif(e == numeros[2]):
-          suspeitos_p.append(nomes[2])
       print("pedro: {}".format(suspeitos_p))
-
-      for i,e in enumerate(agendas[2]):
-        if(e==numeros[0]):
-          suspeitos_a.append(nomes[0])
-        elif(e==numeros[1]):
-          suspeitos_a.append(nomes[1])
       print("antonio: {}".format(suspeitos_a))
+    
+    elif opcao == 3:
+      if(numeros[0]==agendas[1]):
+        print("ok")
