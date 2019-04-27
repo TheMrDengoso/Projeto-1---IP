@@ -1,7 +1,7 @@
 from FileHelper import lerArquivo
 conteudo = lerArquivo()
 
-#variaveis
+###variaveis
 nomes = []
 numeros = []
 agendas = []
@@ -13,7 +13,7 @@ ag_j= []
 ag_p= []
 ag_a= []
 
-#opcao 1
+###opcao 1
 for i,e in enumerate(conteudo):
     if e != 'agenda' and e != 'chamadas':
         d_ponto = str(conteudo[i]).split(":")
@@ -26,7 +26,7 @@ for i,e in enumerate(conteudo):
     if e == 'chamadas':
         break
 
-#opcao 2
+###opcao 2
 for i,e in enumerate(agendas[0]):     
   if(e == numeros[1]):
     suspeitos_j.append(nomes[1])
@@ -47,7 +47,7 @@ for i,e in enumerate(agendas[2]):
   elif(e==numeros[1]):
     suspeitos_a.append(nomes[1])
 
-#opcao 3
+###opcao 3
 for i,e in enumerate(agendas[0]):  
   if i<len(numeros):
     if agendas[0].count(str(numeros[i]))==True:
@@ -70,9 +70,6 @@ for i,e in enumerate(agendas[2]):
   if i>len(numeros):
     break
 
-print(ag_j)
-print(ag_p)
-print(ag_a)
 while True:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
     opcao = int(input("Digite a opção deseja: "))
@@ -104,7 +101,7 @@ while True:
       print("antonio: {}".format(suspeitos_a))
     
     elif opcao == 3:
-      x = agendas[1].count(numeros[0])
-      y = agendas[0].count(numeros[1])
-      if x==1 and y==1:
-        print("{}<->{}".format(nomes[0],nomes[1]))
+      len_j = len(ag_j)
+      len_a = len(ag_a)
+      len_p = len(ag_p)
+      print(len_a,len_j,len_p)
