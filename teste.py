@@ -12,6 +12,10 @@ suspeitos_a = []
 ag_j= []
 ag_p= []
 ag_a= []
+rec_j = []
+rec_p =[]
+rec_a = []
+t = []
 
 ###opcao 1
 for i,e in enumerate(conteudo):
@@ -70,6 +74,16 @@ for i,e in enumerate(agendas[2]):
   if i>len(numeros):
     break
 
+for i in nomes:
+  if(i in suspeitos_p):
+    rec_p.append(i)
+  if(i in suspeitos_a):
+    rec_a.append(i)
+  if(i in suspeitos_j):
+    rec_j.append(i)
+  if(i in rec_p):
+    
+
 while True:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
     opcao = int(input("Digite a opção deseja: "))
@@ -96,12 +110,12 @@ while True:
         else:
             print("Nome invalido!\nO nome dos suspeitos: 'joao' ou 'pedro' ou 'antonio'.\n")
     elif opcao == 2:
+      suspeitos_j = ",".join(suspeitos_j)
+      suspeitos_a = ",".join(suspeitos_a)
+      suspeitos_p = ",".join(suspeitos_p)
       print("joao: {}".format(suspeitos_j))
       print("pedro: {}".format(suspeitos_p))
       print("antonio: {}".format(suspeitos_a))
     
     elif opcao == 3:
-      len_j = len(ag_j)
-      len_a = len(ag_a)
-      len_p = len(ag_p)
-      print(len_a,len_j,len_p)
+      print("ok")
