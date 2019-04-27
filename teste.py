@@ -4,6 +4,7 @@ nomes = []
 numeros = []
 agendas = []
 opcao2 = []
+suspeitos_inc =[]
 for i,e in enumerate(conteudo):
     if e != 'agenda' and e != 'chamadas':
         d_ponto = str(conteudo[i]).split(":")
@@ -12,9 +13,10 @@ for i,e in enumerate(conteudo):
         nomes.append(p[0])
         numeros.append(p[1])
         agendas.append(agenda)
+        
     if e == 'chamadas':
         break
-print(agendas[1])
+print(numeros)
 
 
 while True:
@@ -41,8 +43,14 @@ while True:
             for i in agendas[2]:
               print(i)
         else:
-            print("Nome invalido!")
+            print("Nome invalido!\nO nome dos suspeitos: 'joao' ou 'pedro' ou 'antonio'.\n")
     elif opcao == 2:
       for i in range(len(agendas)):
         for e in (agendas[i]):
-          opcao2.append(e)      
+          opcao2.append(e)
+      for i in range(len(numeros)):
+        if(numeros[1] and numeros[2] ==conteudo[1]):
+          suspeitos_inc = [0]*2
+          suspeitos_inc[0] = nomes[1]
+          suspeitos_inc[1] = nomes [2]
+          
