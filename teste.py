@@ -9,8 +9,9 @@ opcao2 = []
 suspeitos_j =[]
 suspeitos_p =[]
 suspeitos_a = []
-x= []
-
+ag_j= []
+ag_p= []
+ag_a= []
 
 #opcao 1
 for i,e in enumerate(conteudo):
@@ -49,14 +50,29 @@ for i,e in enumerate(agendas[2]):
 #opcao 3
 for i,e in enumerate(agendas[0]):  
   if i<len(numeros):
-    print(i)
     if agendas[0].count(str(numeros[i]))==True:
-      x.append(numeros[i])
+      ag_j.append(numeros[i])
     
-
   if i>len(numeros):
     break
-print(x)
+for i,e in enumerate(agendas[1]):  
+  if i<len(numeros):
+    if agendas[1].count(str(numeros[i]))==True:
+      ag_p.append(numeros[i])
+    
+  if i>len(numeros):
+    break
+for i,e in enumerate(agendas[2]):  
+  if i<len(numeros):
+    if agendas[2].count(str(numeros[i]))==True:
+      ag_a.append(numeros[i])
+    
+  if i>len(numeros):
+    break
+
+print(ag_j)
+print(ag_p)
+print(ag_a)
 while True:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
     opcao = int(input("Digite a opção deseja: "))
