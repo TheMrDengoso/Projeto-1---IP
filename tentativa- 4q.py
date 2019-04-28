@@ -18,6 +18,7 @@ rec_a = []
 t = []
 chamadas = []
 qtd_cha = []
+num = []
 cha = []
 r =0
 
@@ -102,7 +103,11 @@ for i,e in enumerate (numeros):
 for i in numeros:
   if i in chamadas[0]:
     x = chamadas[0].count(i)
+    num.append(i)
+    cha.append(x)
     print(x)
+print(num)
+print(cha)
 
 
 ###algoritmo
