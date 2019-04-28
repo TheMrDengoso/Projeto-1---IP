@@ -18,7 +18,8 @@ rec_a = []
 t = []
 chamadas = []
 qtd_cha = []
-cha =0
+cha = []
+r =0
 
 ###opcao 1
 for i,e in enumerate(conteudo):
@@ -95,22 +96,13 @@ for i,e in enumerate(conteudo):
           if(nomes[i]==d[0]):
             chamada = str(d[1].split(","))
             chamadas.append(chamada)
-for i in range(len(chamadas)):
-  if(i>=0):
-    x = (numeros[i].count(chamadas[i]))
-    qtd_cha.append(x)
 
 for i,e in enumerate (numeros):
   print(e)
-  print(chamadas[i])
-  if (e in chamadas):
-    cha+=1
-print(cha)
-if(numeros[0] in chamadas[1]):
-  cha +=1
-  if cha ==1:
-    x = numeros[0].count(chamadas[1])
-
+for i in numeros:
+  if i in chamadas[0]:
+    x = chamadas[0].count(i)
+    print(x)
 
 
 ###algoritmo
