@@ -74,15 +74,13 @@ for i,e in enumerate(agendas[2]):
   if i>len(numeros):
     break
 
-for i in nomes:
-  if(i in suspeitos_p):
-    rec_p.append(i)
-  if(i in suspeitos_a):
-    rec_a.append(i)
-  if(i in suspeitos_j):
-    rec_j.append(i)
-  if(i in rec_p):
-    
+for i in range (len(nomes)):
+  if(nomes[i] in suspeitos_p):
+    rec_p.append(nomes[i])
+  if(nomes[i] in suspeitos_a):
+    rec_a.append(nomes[i])
+  if(nomes[i] in suspeitos_j):
+    rec_j.append(nomes[i])
 
 while True:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
@@ -118,4 +116,10 @@ while True:
       print("antonio: {}".format(suspeitos_a))
     
     elif opcao == 3:
-      print("ok")
+      if(nomes[0]in rec_p and nomes[1]in rec_j):
+        print("{}<->{}".format(nomes[0],nomes[1]))
+      if(nomes[0]in rec_a and nomes[2]in rec_j):
+        print("{}<->{}".format(nomes[0],nomes[2]))
+      if(nomes[1] in rec_a and nomes[2] in rec_p):
+        print("{}<->{}".format(nomes[1],nomes[2]))
+      
