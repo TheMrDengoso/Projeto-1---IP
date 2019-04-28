@@ -17,6 +17,8 @@ rec_p =[]
 rec_a = []
 t = []
 chamadas = []
+qtd_cha = []
+cha =0
 
 ###opcao 1
 for i,e in enumerate(conteudo):
@@ -93,6 +95,21 @@ for i,e in enumerate(conteudo):
           if(nomes[i]==d[0]):
             chamada = str(d[1].split(","))
             chamadas.append(chamada)
+for i in range(len(chamadas)):
+  if(i>=0):
+    x = (numeros[i].count(chamadas[i]))
+    qtd_cha.append(x)
+
+for i,e in enumerate (numeros):
+  print(e)
+  print(chamadas[i])
+  if (e in chamadas):
+    cha+=1
+print(cha)
+if(numeros[0] in chamadas[1]):
+  cha +=1
+  if cha ==1:
+    x = numeros[0].count(chamadas[1])
 
 
 
@@ -141,13 +158,4 @@ while True:
     elif opcao == 4:
       
       qtd = int(input("Informe a quantidade de chamadas desejadas: "))
-      if(nomes[0]in rec_p and nomes[1]in rec_j and chamadas < qtd):
-        print("{}<->{}".format(nomes[0],nomes[1]))
-
-      if(nomes[0]in rec_p and nomes[1]in rec_j and chamadas >= qtd):
-        print("{}<->{} {}".format(nomes[0],nomes[1], msg))
-
-      if(nomes[0]in rec_a and nomes[2]in rec_j and chamadas < qtd):
-        print("{}<->{}".format(nomes[0],nomes[2]))
-      if(nomes[1] in rec_a and nomes[2] in rec_p):
-        print("{}<->{}".format(nomes[1],nomes[2]))
+      
