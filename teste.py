@@ -93,10 +93,10 @@ for i,e in enumerate(conteudo):
           if(nomes[i]==d[0]):
             chamada = str(d[1].split(","))
             chamadas.append(chamada)
-print(chamadas[0])
-            
 
 
+
+###algoritmo
 while True:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
     opcao = int(input("Digite a opção deseja: "))
