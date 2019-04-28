@@ -86,13 +86,15 @@ for i in range (len(nomes)):
 ###opcao 4
 msg = "(nível alto de suspeição)"
 for i,e in enumerate(conteudo):
-    if e != 'agenda' and e == 'chamadas':
+    if e != 'agenda' and e != 'chamadas':
         d = str(conteudo[i]).split(":")
-        print(d)
-        if e == 'chamadas':
-          continue
-          a = str(d[1]).split(',')
-          print(a)
+        for i in range(len(nomes)):
+
+          if(nomes[i]==d[0]):
+            print(i)
+            print(d[1])
+            
+
 
 while True:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
