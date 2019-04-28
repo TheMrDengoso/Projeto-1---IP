@@ -16,6 +16,7 @@ rec_j = []
 rec_p =[]
 rec_a = []
 t = []
+chamadas = []
 
 ###opcao 1
 for i,e in enumerate(conteudo):
@@ -82,6 +83,20 @@ for i in range (len(nomes)):
   if(nomes[i] in suspeitos_j):
     rec_j.append(nomes[i])
 
+###opcao 4
+msg = "(nível alto de suspeição)"
+for i,e in enumerate(conteudo):
+    if e != 'agenda' and e != 'chamadas':
+        d = str(conteudo[i]).split(":")
+        for i in range(len(nomes)):
+
+          if(nomes[i]==d[0]):
+            chamada = str(d[1].split(","))
+            chamadas.append(chamada)
+print(chamadas[0])
+            
+
+
 while True:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
     opcao = int(input("Digite a opção deseja: "))
@@ -122,4 +137,17 @@ while True:
         print("{}<->{}".format(nomes[0],nomes[2]))
       if(nomes[1] in rec_a and nomes[2] in rec_p):
         print("{}<->{}".format(nomes[1],nomes[2]))
+    
+    elif opcao == 4:
       
+      qtd = int(input("Informe a quantidade de chamadas desejadas: "))
+      if(nomes[0]in rec_p and nomes[1]in rec_j and chamadas < qtd):
+        print("{}<->{}".format(nomes[0],nomes[1]))
+
+      if(nomes[0]in rec_p and nomes[1]in rec_j and chamadas >= qtd):
+        print("{}<->{} {}".format(nomes[0],nomes[1], msg))
+
+      if(nomes[0]in rec_a and nomes[2]in rec_j and chamadas < qtd):
+        print("{}<->{}".format(nomes[0],nomes[2]))
+      if(nomes[1] in rec_a and nomes[2] in rec_p):
+        print("{}<->{}".format(nomes[1],nomes[2]))
