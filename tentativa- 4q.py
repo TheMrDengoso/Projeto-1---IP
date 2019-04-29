@@ -122,14 +122,21 @@ while True:
 
     if opcao == 1:
         nome = str(input("Informe o nome do suspeito que deseja saber a agenda dele: ").lower())
-        for i in range (len(nomes)):
-          if nome == nomes[i]:
-            print("Agenda do suspeito {}:".format(nomes[i]))
-            for i in agendas[i]:
-              print(i)
-        
-          else:
-              print("Nome invalido!\nO nome dos suspeitos: 'joao' ou 'pedro' ou 'antonio'.\n")
+        try:
+          for i in range (len(nomes)):
+          
+
+              if nome == nomes[i]:
+                print("Agenda do suspeito {}:".format(nomes[i]))
+                for i in agendas[i]:
+                  print(i)
+            
+              
+            
+        except:
+          print("Nome invalido!\nO nome dos suspeitos: 'joao' ou 'pedro' ou 'antonio'.\n")
+        else:
+          print("Nome invalido!\nO nome dos suspeitos: 'joao' ou 'pedro' ou 'antonio'.\n")
     elif opcao == 2:
       suspeitos_j = ",".join(suspeitos_j)
       suspeitos_a = ",".join(suspeitos_a)
