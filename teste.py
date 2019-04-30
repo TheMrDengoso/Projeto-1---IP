@@ -94,10 +94,11 @@ for i in numeros:
 
 ###algoritmo
 while True:
+  try:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
     opcao = int(input("Digite a opção deseja: "))
     if opcao > 5 or opcao <= 0:
-      print("Valor inválido, tente o que está no menu!")
+      print("\nValor inválido, tente o que está no menu!\n")
       continue
     if opcao == 5:
         break
@@ -145,4 +146,6 @@ while True:
     elif opcao == 4:
       
       qtd = int(input("Informe a quantidade de chamadas desejadas: "))
-      
+  except ValueError:
+    print("\nValor inválido, tente o que está no menu!\n")
+
