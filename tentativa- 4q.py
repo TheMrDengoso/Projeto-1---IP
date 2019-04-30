@@ -15,13 +15,13 @@ ag_a= []
 rec_j = []
 rec_p =[]
 rec_a = []
-t = []
+pos_op2_1 = []
+pos_op2_2 = []
 chamadas = []
 qtd_cha = []
 num = []
 cha = []
 r =0
-
 ###opcao 1
 for i,e in enumerate(conteudo):
     if e != 'agenda' and e != 'chamadas':
@@ -35,26 +35,29 @@ for i,e in enumerate(conteudo):
     if e == 'chamadas':
         break
 
+### chamada
+for i,e in enumerate(conteudo):
+    if e != 'agenda' and e != 'chamadas':
+        d = str(conteudo[i]).split(":")
+        for i in range(len(nomes)):
+
+          if(nomes[i]==d[0]):
+            chamada = str(d[1].split(","))
+            chamadas.append(chamada)
+
 ###opcao 2
-for i,e in enumerate(agendas[0]):     
-  if(e == numeros[1]):
-    suspeitos_j.append(nomes[1])
-  elif(e == numeros[2]):
-    suspeitos_j.append(nomes[2])
-
-
-for i,e in enumerate(agendas[1]):
-  if(e == numeros[0]):
-    suspeitos_p.append(nomes[0])
-  elif(e == numeros[2]):
-    suspeitos_p.append(nomes[2])
-
-
-for i,e in enumerate(agendas[2]):
-  if(e==numeros[0]):
-    suspeitos_a.append(nomes[0])
-  elif(e==numeros[1]):
-    suspeitos_a.append(nomes[1])
+for i in range (len(agendas)):
+  for e in range(len(agendas[i])):
+    for j in numeros:
+      if j in agendas[i][e]:
+        pos_op2_1.append(i)
+        pos_op2_2.append(j)
+        x = numeros.index(j)
+        print(nomes[x])
+             
+print(pos_op2_1)
+print(pos_op2_2)
+    
 
 ###opcao 3
 for i,e in enumerate(agendas[0]):  
@@ -89,25 +92,13 @@ for i in range (len(nomes)):
 
 ###opcao 4
 msg = "(nível alto de suspeição)"
-for i,e in enumerate(conteudo):
-    if e != 'agenda' and e != 'chamadas':
-        d = str(conteudo[i]).split(":")
-        for i in range(len(nomes)):
 
-          if(nomes[i]==d[0]):
-            chamada = str(d[1].split(","))
-            chamadas.append(chamada)
-
-for i,e in enumerate (numeros):
-  print(e)
 for i in numeros:
+  
   if i in chamadas[0]:
     x = chamadas[0].count(i)
     num.append(i)
     cha.append(x)
-    print(x)
-print(num)
-print(cha)
 
 
 ###algoritmo
