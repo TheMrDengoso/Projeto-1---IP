@@ -46,22 +46,8 @@ for i,e in enumerate(conteudo):
             chamadas.append(chamada)
 
 ###opcao 2
-for i in range (len(agendas)):
-  nomes1_op_2 = nomes[i]
-  nomes2_op_2 = []
-  for e in range(len(agendas[i])):
-    for j in numeros:
-      if j in agendas[i][e]:
-        pos_op2_1.append(i)
-        pos_op2_2.append(j)
-        x = numeros.index(j)
-        nomes2_op_2.append(nomes[x])
-  print("{}: {}".format(nomes1_op_2,",".join(nomes2_op_2)))
-        
 
-print(pos_op2_1)
-print(pos_op2_2)
-print(nomes2_op_2)
+        
     
 
 ###opcao 3
@@ -136,12 +122,17 @@ while True:
           
         
     elif opcao == 2:
-      suspeitos_j = ",".join(suspeitos_j)
-      suspeitos_a = ",".join(suspeitos_a)
-      suspeitos_p = ",".join(suspeitos_p)
-      print("joao: {}".format(suspeitos_j))
-      print("pedro: {}".format(suspeitos_p))
-      print("antonio: {}".format(suspeitos_a))
+      for i in range (len(agendas)):
+        nomes1_op_2 = nomes[i]
+        nomes2_op_2 = []
+        for e in range(len(agendas[i])):
+          for j in numeros:
+            if j in agendas[i][e]:
+              pos_op2_1.append(i)
+              pos_op2_2.append(j)
+              x = numeros.index(j)
+              nomes2_op_2.append(nomes[x])
+        print("{}: {}".format(nomes1_op_2,",".join(nomes2_op_2)))
     
     elif opcao == 3:
       if(nomes[0]in rec_p and nomes[1]in rec_j):
