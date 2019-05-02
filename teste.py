@@ -75,8 +75,7 @@ while True:
               pos_op2_2.append(j)
               x = numeros.index(j)
               nomes2_op_2.append(nomes[x])
-              print(j)
-              print(nomes[x])
+              
         print("{}: {}".format(nomes1_op_2,",".join(nomes2_op_2)))
 
     elif opcao == 3:
