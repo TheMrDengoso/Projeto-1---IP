@@ -5,22 +5,10 @@ conteudo = lerArquivo()
 nomes = []
 numeros = []
 agendas = []
-opcao2 = []
-suspeitos_j =[]
-suspeitos_p =[]
-suspeitos_a = []
-ag_j= []
-ag_p= []
-ag_a= []
-rec_j = []
-rec_p =[]
-rec_a = []
+chamadas = []
 pos_op2_1 = []
 pos_op2_2 = []
 num_op = []
-chamadas = []
-qtd_cha = []
-num = []
 cha = []
 t =[]
 ###opcao 1
@@ -46,20 +34,6 @@ for i,e in enumerate(conteudo):
             chamada = str(d[1].split(","))
             chamadas.append(chamada)
 
-###opcao 3
-
-
-
-###opcao 4
-msg = "(nível alto de suspeição)"
-
-for i in numeros:
-  
-  if i in chamadas[0]:
-    x = chamadas[0].count(i)
-    num.append(i)
-    cha.append(x)
-
 
 ###algoritmo
 while True:
@@ -80,7 +54,7 @@ while True:
         
 
             if nome == nomes[i]:
-              print("Agenda do suspeito {}:".format(nomes[i]))
+              print("\nAgenda do suspeito {}:".format(nomes[i]))
               for i in agendas[i]:
                 print(i)
           
@@ -101,6 +75,8 @@ while True:
               pos_op2_2.append(j)
               x = numeros.index(j)
               nomes2_op_2.append(nomes[x])
+              print(j)
+              print(nomes[x])
         print("{}: {}".format(nomes1_op_2,",".join(nomes2_op_2)))
 
     elif opcao == 3:
@@ -140,6 +116,9 @@ while True:
     
     elif opcao == 4:
       msg = "(nível alto de suspeição)"
+      qtd_cha = int(input("Informe a quantidade de chamadas desejadas: "))
+      if(qtd_cha<0):
+        print("\nInforme um valor acima de 0.\nPara realizar uma busca mais complexa.\n")
       for i in range (len(agendas)):
         nomes1_op_2 = nomes[i]
         nomes2_op_2 = []
@@ -163,17 +142,29 @@ while True:
                   ###chamadas
                   if numeros[x] in chamadas[i]:
                     a = chamadas[i].count(numeros[x])
-                    print(a)
-                    print(numeros[x])
+                    b = chamadas[x].count(numeros[i])
+                    
+                    
+                    
                   rec_1.append(nomes[i])
                   rec_2.append(nomes[x])
                   w = rec_1
                   w.extend(rec_2)
                   y = sorted(w)
                   if w == y:
-                    w = ",".join(w)
-                    w = w.replace(",","<->")
-                    print("{}".format(w))
+                    if a > b:
+                      k = a
+                    else:
+                      k = b
+                      
+                    if k>= qtd_cha:
+                      w = ",".join(w)
+                      w = w.replace(",","<->")
+                      print("{} {}".format(w,msg))
+                    else:
+                      w = ",".join(w)
+                      w = w.replace(",","<->")
+                      print("{}".format(w))
       ### Coloca um contador
 
   except ValueError:
