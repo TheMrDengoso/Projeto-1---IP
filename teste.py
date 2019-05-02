@@ -135,13 +135,12 @@ while True:
               nomes2_op_2.append(nomes[x])
               num_op.append(nomes[x])
               
-              ###reciprocidade
+              ###reciprocidad
               if numeros[x] in agendas[i]:
                 if(numeros[i] in agendas[x]):
                   ###chamadas
-                  if numeros[x] in chamadas[i]:
-                    a = chamadas[i].count(numeros[x])
-                    b = chamadas[x].count(numeros[i])
+                  a = chamadas[i].count(numeros[x])
+                  b = chamadas[x].count(numeros[i])
                                       
                   rec_1.append(nomes[i])
                   rec_2.append(nomes[x])
