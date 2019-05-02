@@ -17,11 +17,12 @@ rec_p =[]
 rec_a = []
 pos_op2_1 = []
 pos_op2_2 = []
+num_op = []
 chamadas = []
 qtd_cha = []
 num = []
 cha = []
-r =0
+t =[]
 ###opcao 1
 for i,e in enumerate(conteudo):
     if e != 'agenda' and e != 'chamadas':
@@ -45,41 +46,9 @@ for i,e in enumerate(conteudo):
             chamada = str(d[1].split(","))
             chamadas.append(chamada)
 
-###opcao 2
-
-        
-    
-
 ###opcao 3
-for i,e in enumerate(agendas[0]):  
-  if i<len(numeros):
-    if agendas[0].count(str(numeros[i]))==True:
-      ag_j.append(numeros[i])
-    
-  if i>len(numeros):
-    break
-for i,e in enumerate(agendas[1]):  
-  if i<len(numeros):
-    if agendas[1].count(str(numeros[i]))==True:
-      ag_p.append(numeros[i])
-    
-  if i>len(numeros):
-    break
-for i,e in enumerate(agendas[2]):  
-  if i<len(numeros):
-    if agendas[2].count(str(numeros[i]))==True:
-      ag_a.append(numeros[i])
-    
-  if i>len(numeros):
-    break
 
-for i in range (len(nomes)):
-  if(nomes[i] in suspeitos_p):
-    rec_p.append(nomes[i])
-  if(nomes[i] in suspeitos_a):
-    rec_a.append(nomes[i])
-  if(nomes[i] in suspeitos_j):
-    rec_j.append(nomes[i])
+
 
 ###opcao 4
 msg = "(nível alto de suspeição)"
@@ -97,6 +66,7 @@ while True:
   try:
     print("Menu: \n1 - Ver agenda de um suspeito \n2 - Listar agendas apenas com suspeitos incluídos \n3 - Visualizar reciprocidades \n4 - Visualizar contatos com alto nível de suspeição \n5 - Sair")
     opcao = int(input("Digite a opção deseja: "))
+    
     if opcao > 5 or opcao <= 0:
       print("\nValor inválido, tente o que está no menu!\n")
       continue
@@ -117,10 +87,7 @@ while True:
             if nome not in nomes:
               print("\nNome não encontrado na agenda!\n")
               break
-                
-            
-        
-          
+                       
         
     elif opcao == 2:
       for i in range (len(agendas)):
@@ -130,22 +97,85 @@ while True:
           for j in numeros:
             if j in agendas[i][e]:
               pos_op2_1.append(i)
+              t.append(e)
               pos_op2_2.append(j)
               x = numeros.index(j)
               nomes2_op_2.append(nomes[x])
         print("{}: {}".format(nomes1_op_2,",".join(nomes2_op_2)))
-    
+
     elif opcao == 3:
-      if(nomes[0]in rec_p and nomes[1]in rec_j):
-        print("{}<->{}".format(nomes[0],nomes[1]))
-      if(nomes[0]in rec_a and nomes[2]in rec_j):
-        print("{}<->{}".format(nomes[0],nomes[2]))
-      if(nomes[1] in rec_a and nomes[2] in rec_p):
-        print("{}<->{}".format(nomes[1],nomes[2]))
+      for i in range (len(agendas)):
+        nomes1_op_2 = nomes[i]
+        nomes2_op_2 = []
+        rec_1 = []
+        rec_2 =[]
+        w = []
+        for e in range(len(agendas[i])):
+          for j in numeros:
+            if j in agendas[i][e]:
+              pos_op2_1.append(i)
+              t.append(e)
+              pos_op2_2.append(j)
+              x = numeros.index(j)
+              nomes2_op_2.append(nomes[x])
+              num_op.append(nomes[x])
+              ###reciprocidade
+              if numeros[x] in agendas[i]:
+                if(numeros[i] in agendas[x]):
+                  
+                  rec_1.append(nomes[i])
+                  rec_2.append(nomes[x])
+                  w = rec_1
+                  w.extend(rec_2)
+                  y = sorted(w)
+                  if w == y:
+                    w = ",".join(w)
+                    w = w.replace(",","<->")
+                    print("{}".format(w))
+              
+              
+              
+              
+              
     
     elif opcao == 4:
-      
-      qtd = int(input("Informe a quantidade de chamadas desejadas: "))
+      msg = "(nível alto de suspeição)"
+      for i in range (len(agendas)):
+        nomes1_op_2 = nomes[i]
+        nomes2_op_2 = []
+        rec_1 = []
+        rec_2 =[]
+        w = []
+        qtd = 0
+        for e in range(len(agendas[i])):
+          for j in numeros:
+            if j in agendas[i][e]:
+              pos_op2_1.append(i)
+              t.append(e)
+              pos_op2_2.append(j)
+              x = numeros.index(j)
+              nomes2_op_2.append(nomes[x])
+              num_op.append(nomes[x])
+              
+              ###reciprocidade
+              if numeros[x] in agendas[i]:
+                if(numeros[i] in agendas[x]):
+                  ###chamadas
+                  if numeros[x] in chamadas[i]:
+                    a = chamadas[i].count(numeros[x])
+                    print(a)
+                    print(numeros[x])
+                  rec_1.append(nomes[i])
+                  rec_2.append(nomes[x])
+                  w = rec_1
+                  w.extend(rec_2)
+                  y = sorted(w)
+                  if w == y:
+                    w = ",".join(w)
+                    w = w.replace(",","<->")
+                    print("{}".format(w))
+      ### Coloca um contador
+
   except ValueError:
     print("\nValor inválido, tente o que está no menu!\n")
-
+      
