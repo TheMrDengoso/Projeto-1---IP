@@ -8,7 +8,6 @@ agendas = []
 chamadas = []
 pos_op2_1 = []
 pos_op2_2 = []
-num_op = []
 cha = []
 t =[]
 ###opcao 1
@@ -95,7 +94,6 @@ while True:
               pos_op2_2.append(j)
               x = numeros.index(j)
               nomes2_op_2.append(nomes[x])
-              num_op.append(nomes[x])
               ###reciprocidade
               if numeros[x] in agendas[i]:
                 if(numeros[i] in agendas[x]):
@@ -133,7 +131,6 @@ while True:
               pos_op2_2.append(j)
               x = numeros.index(j)
               nomes2_op_2.append(nomes[x])
-              num_op.append(nomes[x])
               
               ###reciprocidad
               if numeros[x] in agendas[i]:
