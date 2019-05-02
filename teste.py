@@ -47,6 +47,7 @@ while True:
     if opcao == 5:
         break
 
+    ###Opçao1
     if opcao == 1:
         nome = str(input("Informe o nome do suspeito que deseja saber a agenda dele: ").lower())
         
@@ -62,7 +63,7 @@ while True:
               print("\nNome não encontrado na agenda!\n")
               break
                        
-        
+    ###Opçao2    
     elif opcao == 2:
       for i in range (len(agendas)):
         nomes1_op_2 = nomes[i]
@@ -78,6 +79,7 @@ while True:
               
         print("{}: {}".format(nomes1_op_2,",".join(nomes2_op_2)))
 
+    ###Opçao3
     elif opcao == 3:
       for i in range (len(agendas)):
         nomes1_op_2 = nomes[i]
@@ -107,17 +109,15 @@ while True:
                     w = ",".join(w)
                     w = w.replace(",","<->")
                     print("{}".format(w))
-              
-              
-              
-              
-              
-    
+                          
+    ###Opçao4
     elif opcao == 4:
       msg = "(nível alto de suspeição)"
       qtd_cha = int(input("Informe a quantidade de chamadas desejadas: "))
+      print("\nLista de reciprocidades com chamadas:\n--------------------------")
       if(qtd_cha<0):
         print("\nInforme um valor acima de 0.\nPara realizar uma busca mais complexa.\n")
+        
       for i in range (len(agendas)):
         nomes1_op_2 = nomes[i]
         nomes2_op_2 = []
@@ -142,9 +142,7 @@ while True:
                   if numeros[x] in chamadas[i]:
                     a = chamadas[i].count(numeros[x])
                     b = chamadas[x].count(numeros[i])
-                    
-                    
-                    
+                                      
                   rec_1.append(nomes[i])
                   rec_2.append(nomes[x])
                   w = rec_1
@@ -155,7 +153,7 @@ while True:
                       k = a
                     else:
                       k = b
-                      
+                    
                     if k>= qtd_cha:
                       w = ",".join(w)
                       w = w.replace(",","<->")
