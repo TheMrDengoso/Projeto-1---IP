@@ -141,18 +141,13 @@ while True:
                   ###chamadas
                   a = chamadas[i].count(numeros[x])
                   b = chamadas[x].count(numeros[i])
-                                      
+                  k = a+b             
                   rec_1.append(nomes[i])
                   rec_2.append(nomes[x])
                   w = rec_1
                   w.extend(rec_2)
                   y = sorted(w)
                   if w == y:
-                    if a > b:
-                      k = a
-                    else:
-                      k = b
-                    
                     if k>= qtd_cha:
                       w = ",".join(w)
                       w = w.replace(",","<->")
